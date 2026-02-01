@@ -386,3 +386,15 @@ body.scale-cv .controls-container {
         right: 20px;
     }
 }
+
+.lang-btn {
+    text-decoration: none;  /* Rimuove la sottolineatura del link */
+    font-weight: 700;       /* Grassetto per le sigle IT/EN */
+    font-size: 0.9rem;      /* Dimensione del testo */
+    line-height: 1;         /* Centratura verticale perfetta */
+}
+
+/* Assicuriamo che il colore del link sia coerente con il tema */
+.lang-btn:visited {
+    color: inherit;
+}
