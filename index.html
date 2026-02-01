@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Ing. Andrea Calafiore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+</head>
+<body>
+
+    <div class="controls-container">
+        <button class="control-btn change-theme" id="theme-button" title="Cambia Tema">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+
+        <button class="control-btn generate-pdf" id="resume-button" title="Scarica PDF">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+        </button>
+    </div>
+
+    <div class="container" id="cvContent">
+        <aside>
+            <div class="contact-info">
+                <h2>Contatti</h2>
+                <div class="contact-item">
+                    <span>Telefono</span>
+					<a href="tel:+393288290381">
+                    +39 328 8290381
+					</a>
+                </div>
+                <div class="contact-item">
+                    <span>Email</span>
+					<a href="mailto:calafiore.andrea@gmail.com">
+						calafiore.andrea@gmail.com
+					</a>
+                </div>
+                <div class="contact-item">
+                    <span>LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/andrea-calafiore-082853131" target="_blank">
+						andrea-calafiore-082853131
+					</a>
+                </div>
+                <div class="contact-item">
+                    <span>Località</span>
+                    Ravenna, Italia
+                </div>
+            </div>
+
+            <h2>Hard Skills</h2>
+            <div class="skill-group">
+                <strong>Core Development</strong>
+                <div class="pill">C# / .NET Core</div>
+                <div class="pill">C / C++</div>
+                <div class="pill">React / MVC</div>
+                <div class="pill">API Design</div>
+            </div>
+            <div class="skill-group">
+                <strong>Azure & Cloud Data</strong>
+                <div class="pill">Web App / Functions</div>
+                <div class="pill">APIM / Service Bus</div>
+                <div class="pill">Cosmos DB / SQL</div>
+                <div class="pill">Redis</div>
+            </div>
+            <div class="skill-group">
+                <strong>Industrial IoT</strong>
+                <div class="pill">OPC UA / SCADA</div>
+                <div class="pill">PLC / CNC Systems</div>
+                <div class="pill">Industry 4.0</div>
+                <div class="pill">Real-time Logic</div>
+            </div>
+            <div class="skill-group">
+                <strong>DevOps & Tools</strong>
+                <div class="pill">Azure DevOps / ClickUp</div>
+				<div class="pill">Git / Perforce / SVN</div>
+                <div class="pill">Postman / LINQPad</div>
+            </div>
+
+            <h2>Soft Skills</h2>
+            <div class="skill-group">
+                <div class="pill">Leadership Tecnica</div>
+                <div class="pill">Strategic Thinking</div>
+                <div class="pill">Problem Solving</div>
+                <div class="pill">Team Mentoring</div>
+                <div class="pill">Adattabilità</div>
+            </div>
+
+            <h2>Lingue</h2>
+            <div class="languages-grid">
+                <div class="contact-item">
+                    <span>Italiano</span>
+                    Madrelingua
+                </div>
+                <div class="contact-item">
+                    <span>Inglese</span>
+                    Fluente
+                </div>
+            </div>
+            
+            </aside>
+
+        <main>
+            <header>
+                <h1>Andrea Calafiore</h1>
+                <div class="subtitle">Senior Software Engineer & Automation Expert</div>
+            </header>
+
+            <section>
+                <h2 class="section-title">Profilo Professionale</h2>
+                <p id="profileText">
+                    Ingegnere Informatico (10+ anni) esperto in architetture <strong>Cloud-native SaaS su Azure</strong> e qualità del software (<strong>SOLID/Clean Code</strong>). Solido background in <strong>Automazione Industriale</strong> (SCADA/PLC/Real-time) e competenze operative Frontend.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Esperienza Lavorativa</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="job-title">Senior Software Engineer</span>
+                        <span class="date">2023 — Presente</span>
+                    </div>
+                    <div class="company">BRG Communication | Cesenatico (RA)</div>
+                    <p><strong>Ambito: SaaS B2B e CMS & e-commerce B2C (Fashion & Lifestyle)</strong></p>
+                    <ul>
+                        <li><strong>Architettura Cloud:</strong> Sviluppo e implementazione di una piattaforma PIM scalabile su Azure.</li>
+                        <li><strong>Gestione API:</strong> Progettazione ed esposizione di API RESTful tramite Azure APIM.</li>
+                        <li><strong>Integrazione marketplace:</strong> Motori di sincronizzazione real-time per marketplace internazionali.</li>
+                        <li><strong>Servizi AI:</strong> Intelligenza artificiale per la localizzazione automatica dei cataloghi.</li>
+						<li><strong>CMS & E-commerce:</strong> Ottimizzazione e scaling di sistemi CMS proprietari per il settore Fashion & Lifestyle.</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="job-title">Senior Software Technician / Architect</span>
+                        <span class="date">2020 — 2023</span>
+                    </div>
+                    <div class="company">Marini Spa - Fayat Group | Alfonsine (RA)</div>
+                    <p><strong>Ambito: Supervisione Impianti e Automazione Industriale</strong></p>
+                    <ul>
+                        <li><strong>Architettura SCADA:</strong> Sistema di supervisione distribuito basato su .NET Core e OPC UA.</li>
+                        <li><strong>Database Management:</strong> Lead Developer per ottimizzazione database PostgreSQL per big data industriali.</li>
+                        <li><strong>Legacy Migration:</strong> Refactoring strategico e manutenzione critica di sistemi SCADA preesistenti.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="job-title">Firmware & Software Engineer</span>
+                        <span class="date">2015 — 2020</span>
+                    </div>
+                    <div class="company">Tex Computer Srl | Faenza (RA)</div>
+                    <p><strong>Ambito: Sistemi Embedded e Controllo Numerico (CNC)</strong></p>
+                    <ul>
+                        <li><strong>Firmware Development:</strong> Sviluppo firmware real-time in C/C++ per controllori CNC proprietari.</li>
+                        <li><strong>HMI & Tooling:</strong> Progettazione tool diagnostici e interfacce operatore in ambiente .NET.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="job-title">Software Engineer</span>
+                        <span class="date">2015</span>
+                    </div>
+                    <div class="company">Unitec SpA | Lugo (RA)</div>
+                    <p><strong>Ambito: Visione Artificiale e Automazione</strong></p>
+                    <ul>
+                        <li><strong>Industrial Traceability:</strong> Software per tracciabilità e integrazione dati su linee ad alta velocità.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Istruzione</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="job-title">Magistrale in Ingegneria Informatica</span>
+                        <span class="date">2015</span>
+                    </div>
+                    <div class="company">Università di Bologna</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+	<script src="assets/javascripts/html2pdf.v0.9.3.bundle.min.js"></script>
+	<script src="assets/javascripts/main.js"></script>
+</body>
+</html>

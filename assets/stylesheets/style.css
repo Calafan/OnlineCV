@@ -1,0 +1,388 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Variabili e Colori */
+:root {
+    --header-height: 3rem;
+
+    /* Colors */
+    --primary-color: #1a365d;
+    --secondary-color: #2c5282;
+    --accent-color: #4299e1;
+    --text-main: #2d3748;
+    --text-light: #718096;
+    --bg-body: #f7fafc;
+    --bg-container: #ffffff;
+    --border-color: #edf2f7;
+    --shadow-color: rgba(0,0,0,0.1);
+
+    /* Typography Defaults */
+    --body-font: 'Roboto', sans-serif;
+    
+    /* Normal Font Sizes */
+    --h1-font-size: 2.2rem;
+    --h2-font-size: 1.1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.85rem;
+    --smaller-font-size: 0.75rem;
+
+    /* Spacing Defaults */
+    --mb-section: 2rem;
+    --mb-item: 1.5rem;
+}
+
+/* Tema Scuro */
+body.dark-theme {
+    --primary-color: #90cdf4;
+    --secondary-color: #63b3ed;
+    --accent-color: #4299e1;
+    --text-main: #f7fafc;
+    --text-light: #a0aec0;
+    --bg-body: #1a202c;
+    --bg-container: #2d3748;
+    --border-color: #4a5568;
+    --shadow-color: rgba(0,0,0,0.3);
+}
+
+/* Reset e Base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Pulsanti Controllo */
+.controls-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.control-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+body.dark-theme .control-btn {
+    color: #1a202c; 
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Layout Principale */
+.container {
+    max-width: 968px;
+    margin: 3rem auto;
+    background-color: var(--bg-container);
+    box-shadow: 0 0 20px var(--shadow-color);
+    display: grid;
+    grid-template-columns: 280px 1fr; 
+    min-height: 100vh;
+}
+
+/* Sidebar */
+aside {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 3rem 1.5rem;
+}
+
+body.dark-theme aside {
+    color: #1a202c;
+}
+
+aside h2 {
+    color: inherit;
+    font-size: var(--h2-font-size);
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+aside h2:first-of-type {
+    margin-top: 0;
+}
+
+.contact-item {
+    margin-bottom: var(--mb-item);
+}
+
+.contact-item span {
+    display: block;
+    color: var(--accent-color);
+    font-size: var(--smaller-font-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.skill-group {
+    margin-bottom: var(--mb-item);
+}
+
+.skill-group strong {
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0 4px 4px 0;
+    font-size: var(--smaller-font-size);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+body.dark-theme .pill {
+    background: rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.1);
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Main Content */
+main {
+    padding: 3rem;
+}
+
+header {
+    margin-bottom: 2.5rem;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+section {
+    margin-bottom: var(--mb-section);
+}
+
+h2.section-title {
+    font-size: var(--h2-font-size);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Esperienza */
+.experience-item {
+    margin-bottom: var(--mb-item);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.date {
+    font-size: var(--smaller-font-size);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.company {
+    font-size: var(--small-font-size);
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    text-align: justify;
+    font-size: var(--normal-font-size);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+li {
+    font-size: var(--normal-font-size);
+    text-align: justify;
+}
+
+/* =========================================
+   === CLASSI PER LA GENERAZIONE PDF ===
+   ========================================= */
+body.scale-cv {
+    /* 1. RIDUZIONE DRASTICA FONT GENERALE */
+    --h1-font-size: 1.4rem;       
+    --h2-font-size: 0.95rem;       
+    --normal-font-size: 0.75rem;  
+    --small-font-size: 0.7rem;    
+    --smaller-font-size: 0.65rem; 
+    
+    /* 2. RIDUZIONE SPAZIATURE */
+    --mb-section: 1rem; 
+    --mb-item: 0.8rem;      
+}
+
+/* Forzatura colori in PDF Dark Mode */
+body.scale-cv.dark-theme,
+body.scale-cv.dark-theme .job-title,
+body.scale-cv.dark-theme p,
+body.scale-cv.dark-theme li {
+    color: #f7fafc !important; /* Forza il bianco */
+}
+
+body.scale-cv.dark-theme .company,
+body.scale-cv.dark-theme .subtitle {
+    color: #63b3ed !important; /* Forza l'azzurro chiaro */
+}
+
+body.scale-cv.dark-theme .date {
+    color: #a0aec0 !important; /* Forza il grigio chiaro */
+}
+
+/* Layout PDF */
+body.scale-cv .container {
+    width: 794px;  
+    max-width: 794px;
+    min-height: 1122px; 
+    margin-top: 0;
+	margin-bottom: 0;
+    box-shadow: none;
+	overflow: hidden;
+    /* Riduco la larghezza della sidebar per dare più spazio al testo */
+    grid-template-columns: 220px 1fr; 
+}
+
+/* Compressione specifica Sidebar per PDF */
+body.scale-cv aside {
+    padding: 1.5rem 1rem;
+}
+
+body.scale-cv aside h2 {
+    margin-top: 1rem; 
+    font-size: 0.85rem;
+    padding-bottom: 0.2rem;
+}
+
+body.scale-cv .contact-item {
+    margin-bottom: 0.6rem;
+    font-size: 0.7rem;
+}
+
+body.scale-cv .contact-item span {
+    margin-bottom: 0;
+    font-size: 0.6rem;
+}
+
+body.scale-cv .skill-group {
+    margin-bottom: 0.8rem;
+}
+
+body.scale-cv .pill {
+    padding: 2px 6px;
+    font-size: 0.6rem; /* Pillole più piccole */
+    margin: 0 2px 2px 0;
+}
+
+/* Main content PDF tweaks */
+body.scale-cv main {
+    padding: 2rem 2rem; 
+}
+
+body.scale-cv header {
+    margin-bottom: 1rem; 
+}
+
+body.scale-cv .controls-container {
+    display: none;
+}
+
+/* Media Queries Mobile */
+@media (max-width: 768px) {
+    .container {
+        /* Passa a Flexbox per gestire l'ordine */
+        display: flex;
+        flex-direction: column;
+        
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+    }
+    
+    /* Inverte l'ordine visuale */
+    main {
+        order: 1; /* Primo */
+        padding: 2rem;
+    }
+    
+    aside {
+        order: 2; /* Secondo */
+        padding: 2rem;
+    }
+
+    .controls-container {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+}
