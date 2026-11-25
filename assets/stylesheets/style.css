@@ -382,7 +382,7 @@ body.dark-theme .lang-btn:visited {
 @media print {
     @page {
         size: A4;
-        margin: 14mm 15mm;
+        margin: 12mm 14mm;
     }
 
     /* Palette chiara anche se il tema scuro e' attivo */
@@ -400,17 +400,22 @@ body.dark-theme .lang-btn:visited {
 
         --h1-font-size: 20pt;
         --h2-font-size: 11pt;
-        --normal-font-size: 10pt;
+        --normal-font-size: 9.5pt;
         --small-font-size: 9.5pt;
         --smaller-font-size: 9.5pt;
 
-        --mb-section: 1rem;
-        --mb-item: 0.8rem;
+        --mb-section: 0.8rem;
+        --mb-item: 0.6rem;
     }
 
     body {
         background: #fff;
         transition: none;
+        line-height: 1.4;
+    }
+
+    li {
+        margin-bottom: 3px;
     }
 
     .controls-container {
@@ -455,8 +460,8 @@ body.dark-theme .lang-btn:visited {
         text-transform: uppercase;
         letter-spacing: normal;
         border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin: 0 0 1rem;
+        padding-bottom: 0.3rem;
+        margin: 0 0 0.6rem;
         break-after: avoid;
     }
 
@@ -536,12 +541,16 @@ body.dark-theme .lang-btn:visited {
         content: " · ";
     }
 
-    .experience-item {
+    /* Un'esperienza lunga può continuare nella pagina successiva,
+       ma un singolo punto no, e intestazione, azienda e ambito
+       restano attaccati al primo punto */
+    .experience-item li {
         break-inside: avoid;
     }
 
     .experience-header,
-    .company {
+    .company,
+    .experience-item > p {
         break-after: avoid;
     }
 }
