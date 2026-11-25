@@ -1,5 +1,28 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+/* Roboto statico ospitato nel repo (fontsource 5.3.0, licenza OFL 1.1 in assets/fonts/LICENSE).
+   Statico e non variabile: Chrome lo incorpora nel PDF come TrueType invece che come Type3. */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/roboto-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/roboto-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/roboto-latin-700-normal.woff2') format('woff2');
+}
 
 /* Variabili e Colori */
 :root {
@@ -18,7 +41,7 @@
 
     /* Typography Defaults */
     --body-font: 'Roboto', sans-serif;
-    
+
     /* Normal Font Sizes */
     --h1-font-size: 2.2rem;
     --h2-font-size: 1.1rem;
@@ -99,26 +122,48 @@ a {
 }
 
 body.dark-theme .control-btn {
-    color: #1a202c; 
+    color: #1a202c;
 }
 
 .control-btn:hover {
     transform: scale(1.1);
 }
 
-/* Layout Principale */
+/* Layout Principale: header e profilo in alto a destra, sidebar a sinistra, esperienza sotto */
 .container {
     max-width: 968px;
     margin: 3rem auto;
     background-color: var(--bg-container);
     box-shadow: 0 0 20px var(--shadow-color);
     display: grid;
-    grid-template-columns: 280px 1fr; 
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto auto 1fr;
     min-height: 100vh;
+}
+
+.cv-header {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 3rem 3rem 0;
+    margin-bottom: 2.5rem;
+}
+
+.profile {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0 3rem;
+}
+
+main {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 0 3rem 3rem;
 }
 
 /* Sidebar */
 aside {
+    grid-column: 1;
+    grid-row: 1 / -1;
     background-color: var(--primary-color);
     color: #fff;
     padding: 3rem 1.5rem;
@@ -140,19 +185,6 @@ aside h2 {
 
 aside h2:first-of-type {
     margin-top: 0;
-}
-
-.contact-item {
-    margin-bottom: var(--mb-item);
-}
-
-.contact-item span {
-    display: block;
-    color: var(--accent-color);
-    font-size: var(--smaller-font-size);
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
 }
 
 .skill-group {
@@ -187,15 +219,20 @@ body.dark-theme .pill {
     gap: 1rem;
 }
 
-/* Main Content */
-main {
-    padding: 3rem;
+.language-item {
+    margin-bottom: var(--mb-item);
 }
 
-header {
-    margin-bottom: 2.5rem;
+.language-item span {
+    display: block;
+    color: var(--accent-color);
+    font-size: var(--smaller-font-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
 }
 
+/* Intestazione */
 h1 {
     font-size: var(--h1-font-size);
     color: var(--primary-color);
@@ -211,16 +248,26 @@ h1 {
     font-weight: 500;
 }
 
+.contacts {
+    font-size: var(--small-font-size);
+    color: var(--text-light);
+    margin: 0.5rem 0 0;
+    text-align: left;
+}
+
 section {
     margin-bottom: var(--mb-section);
 }
 
+/* margin-top 0: header, profilo e main sono celle della griglia, dove i margini
+   non collassano; lo spazio sopra il titolo lo danno già i margini del blocco precedente. */
 h2.section-title {
     font-size: var(--h2-font-size);
     color: var(--primary-color);
     text-transform: uppercase;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.5rem;
+    margin-top: 0;
     margin-bottom: 1rem;
 }
 
@@ -267,117 +314,41 @@ li {
     text-align: justify;
 }
 
-/* =========================================
-   === CLASSI PER LA GENERAZIONE PDF ===
-   ========================================= */
-body.scale-cv {
-    /* 1. RIDUZIONE DRASTICA FONT GENERALE */
-    --h1-font-size: 1.4rem;       
-    --h2-font-size: 0.95rem;       
-    --normal-font-size: 0.75rem;  
-    --small-font-size: 0.7rem;    
-    --smaller-font-size: 0.65rem; 
-    
-    /* 2. RIDUZIONE SPAZIATURE */
-    --mb-section: 1rem; 
-    --mb-item: 0.8rem;      
-}
-
-/* Forzatura colori in PDF Dark Mode */
-body.scale-cv.dark-theme,
-body.scale-cv.dark-theme .job-title,
-body.scale-cv.dark-theme p,
-body.scale-cv.dark-theme li {
-    color: #f7fafc !important; /* Forza il bianco */
-}
-
-body.scale-cv.dark-theme .company,
-body.scale-cv.dark-theme .subtitle {
-    color: #63b3ed !important; /* Forza l'azzurro chiaro */
-}
-
-body.scale-cv.dark-theme .date {
-    color: #a0aec0 !important; /* Forza il grigio chiaro */
-}
-
-/* Layout PDF */
-body.scale-cv .container {
-    width: 794px;  
-    max-width: 794px;
-    min-height: 1122px; 
-    margin-top: 0;
-	margin-bottom: 0;
-    box-shadow: none;
-	overflow: hidden;
-    /* Riduco la larghezza della sidebar per dare più spazio al testo */
-    grid-template-columns: 220px 1fr; 
-}
-
-/* Compressione specifica Sidebar per PDF */
-body.scale-cv aside {
-    padding: 1.5rem 1rem;
-}
-
-body.scale-cv aside h2 {
-    margin-top: 1rem; 
-    font-size: 0.85rem;
-    padding-bottom: 0.2rem;
-}
-
-body.scale-cv .contact-item {
-    margin-bottom: 0.6rem;
-    font-size: 0.7rem;
-}
-
-body.scale-cv .contact-item span {
-    margin-bottom: 0;
-    font-size: 0.6rem;
-}
-
-body.scale-cv .skill-group {
-    margin-bottom: 0.8rem;
-}
-
-body.scale-cv .pill {
-    padding: 2px 6px;
-    font-size: 0.6rem; /* Pillole più piccole */
-    margin: 0 2px 2px 0;
-}
-
-/* Main content PDF tweaks */
-body.scale-cv main {
-    padding: 2rem 2rem; 
-}
-
-body.scale-cv header {
-    margin-bottom: 1rem; 
-}
-
-body.scale-cv .controls-container {
-    display: none;
-}
-
 /* Media Queries Mobile */
 @media (max-width: 768px) {
     .container {
         /* Passa a Flexbox per gestire l'ordine */
         display: flex;
         flex-direction: column;
-        
+
         margin: 0;
         box-shadow: none;
         width: 100%;
     }
-    
-    /* Inverte l'ordine visuale */
+
+    /* Ordine visuale: header, profilo, esperienza, poi la sidebar in fondo */
+    .cv-header {
+        order: 1;
+        padding: 2rem 2rem 0;
+    }
+
+    .profile {
+        order: 2;
+        padding: 0 2rem;
+    }
+
     main {
-        order: 1; /* Primo */
+        order: 3;
+        padding: 0 2rem 2rem;
+    }
+
+    aside {
+        order: 4;
         padding: 2rem;
     }
-    
-    aside {
-        order: 2; /* Secondo */
-        padding: 2rem;
+
+    .contacts {
+        overflow-wrap: anywhere;
     }
 
     .controls-container {
@@ -387,17 +358,199 @@ body.scale-cv .controls-container {
     }
 }
 
-.lang-btn, 
+.lang-btn,
 .lang-btn:visited {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
     line-height: 1;
-    color: #fff; 
+    color: #fff;
 }
 
 /* FIX: Gestione specifica per il Tema Scuro */
 body.dark-theme .lang-btn,
 body.dark-theme .lang-btn:visited {
-    color: #1a202c; 
+    color: #1a202c;
+}
+
+/* =========================================
+   === STAMPA / PDF (generato con Chrome) ===
+   Una colonna, tema chiaro, testo selezionabile
+   nell'ordine: intestazione, profilo, competenze,
+   lingue, esperienza, istruzione.
+   ========================================= */
+@media print {
+    @page {
+        size: A4;
+        margin: 12mm 14mm;
+    }
+
+    /* Palette chiara anche se il tema scuro e' attivo */
+    :root,
+    body,
+    body.dark-theme {
+        --primary-color: #1a365d;
+        --secondary-color: #2c5282;
+        --accent-color: #4299e1;
+        --text-main: #2d3748;
+        --text-light: #4a5568;
+        --bg-body: #ffffff;
+        --bg-container: #ffffff;
+        --border-color: #edf2f7;
+
+        --h1-font-size: 20pt;
+        --h2-font-size: 11pt;
+        --normal-font-size: 9.5pt;
+        --small-font-size: 9.5pt;
+        --smaller-font-size: 9.5pt;
+
+        --mb-section: 0.8rem;
+        --mb-item: 0.6rem;
+    }
+
+    body {
+        background: #fff;
+        transition: none;
+        line-height: 1.4;
+    }
+
+    li {
+        margin-bottom: 3px;
+    }
+
+    .controls-container {
+        display: none;
+    }
+
+    .container {
+        display: block;
+        max-width: none;
+        margin: 0;
+        min-height: 0;
+        box-shadow: none;
+    }
+
+    .cv-header,
+    .profile,
+    aside,
+    main {
+        padding: 0;
+    }
+
+    .cv-header {
+        margin-bottom: 0.8rem;
+    }
+
+    p,
+    li {
+        text-align: left;
+    }
+    .subtitle {
+        font-size: 12pt;
+    }
+
+    .job-title {
+        font-size: 10.5pt;
+    }
+
+    h2.section-title,
+    aside h2 {
+        font-size: var(--h2-font-size);
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: normal;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.3rem;
+        margin: 0 0 0.6rem;
+        break-after: avoid;
+    }
+
+    /* Sidebar: stesso aspetto del corpo, senza sfondo */
+    aside,
+    body.dark-theme aside {
+        background: none;
+        color: var(--text-main);
+    }
+
+    aside {
+        margin-bottom: var(--mb-section);
+    }
+
+    aside h2 {
+        margin-top: var(--mb-section);
+    }
+
+    aside h2:first-of-type {
+        margin-top: 0;
+    }
+
+    /* Competenze come testo in riga: "Gruppo: voce, voce, voce" */
+    .skill-group {
+        margin-bottom: 0.4rem;
+    }
+
+    .skill-group strong {
+        display: inline;
+        margin: 0;
+        opacity: 1;
+        font-size: var(--normal-font-size);
+    }
+
+    .skill-group strong::after {
+        content: ": ";
+    }
+
+    .pill,
+    body.dark-theme .pill {
+        display: inline;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: var(--normal-font-size);
+    }
+
+    .pill:not(:last-child)::after {
+        content: ", ";
+    }
+
+    /* Lingue su una riga: "Italiano: Madrelingua · Inglese: Fluente" */
+    .languages-grid {
+        display: block;
+    }
+
+    .language-item {
+        display: inline;
+        margin: 0;
+        font-size: var(--normal-font-size);
+    }
+
+    .language-item span {
+        display: inline;
+        color: inherit;
+        font-size: inherit;
+        text-transform: none;
+        margin: 0;
+    }
+
+    .language-item span::after {
+        content: ": ";
+    }
+
+    .language-item:not(:last-child)::after {
+        content: " · ";
+    }
+
+    /* Un'esperienza lunga può continuare nella pagina successiva,
+       ma un singolo punto no, e intestazione, azienda e ambito
+       restano attaccati al primo punto */
+    .experience-item li {
+        break-inside: avoid;
+    }
+
+    .experience-header,
+    .company,
+    .experience-item > p {
+        break-after: avoid;
+    }
 }
