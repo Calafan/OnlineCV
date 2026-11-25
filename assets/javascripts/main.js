@@ -38,39 +38,3 @@ function updateThemeIcon(isDark) {
         icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
     }
 }
-
-
-/* ==================== GENERATE PDF ==================== */
-const areaCV = document.getElementById('cvContent');
-const resumeButton = document.getElementById('resume-button');
-
-function generateResume() {
-    // 1. Aggiunge la classe di scalatura
-    document.body.classList.add('scale-cv');
-    
-    // 2. Determina nome file
-    const isDark = document.body.classList.contains(darkTheme);
-    const fileName = isDark ? 'Andrea_Calafiore_CV_Dark.pdf' : 'Andrea_Calafiore_CV_Light.pdf';
-
-    // Opzioni
-    const opt = {
-        margin:       0,
-        filename:     fileName,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { 
-            scale: 2,
-            useCORS: true,
-            scrollY: 0 /* Assicura che inizi dall'alto */
-        },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    // 3. Genera il PDF e poi ripristina
-	html2pdf(areaCV, opt).then(() => {
-        setTimeout(() => {
-            document.body.classList.remove('scale-cv');
-        }, 1000);
-    });
-}
-
-resumeButton.addEventListener('click', generateResume);

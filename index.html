@@ -4,60 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - Ing. Andrea Calafiore</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
 </head>
 <body>
 
     <div class="controls-container">
-	
+
 		<a href="en.html" class="control-btn lang-btn" title="English Version">
         EN
 		</a>
-	
+
         <button class="control-btn change-theme" id="theme-button" title="Cambia Tema">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
         </button>
 
-        <button class="control-btn generate-pdf" id="resume-button" title="Scarica PDF">
+        <a class="control-btn generate-pdf" href="assets/pdf/Andrea_Calafiore_CV_IT.pdf" download title="Scarica PDF">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-        </button>
+        </a>
     </div>
 
     <div class="container" id="cvContent">
-        <aside>
-            <div class="contact-info">
-                <h2>Contatti</h2>
-                <div class="contact-item">
-                    <span>Telefono</span>
-					<a href="tel:+393288290381">
-                    +39 328 8290381
-					</a>
-                </div>
-                <div class="contact-item">
-                    <span>Email</span>
-					<a href="mailto:calafiore.andrea@gmail.com">
-						calafiore.andrea@gmail.com
-					</a>
-                </div>
-                <div class="contact-item">
-                    <span>LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/andrea-calafiore-082853131" target="_blank">
-						andrea-calafiore-082853131
-					</a>
-                </div>
-                <div class="contact-item">
-                    <span>Località</span>
-                    Ravenna, Italia
-                </div>
-            </div>
+        <header class="cv-header">
+            <h1>Andrea Calafiore</h1>
+            <div class="subtitle">Senior Software Engineer & Automation Expert</div>
+            <p class="contacts">
+                <a href="tel:+393288290381">+39 328 8290381</a><span class="sep"> · </span><a href="mailto:calafiore.andrea@gmail.com">calafiore.andrea@gmail.com</a><span class="sep"> · </span><a href="https://www.linkedin.com/in/andrea-calafiore-082853131" target="_blank">linkedin.com/in/andrea-calafiore-082853131</a><span class="sep"> · </span><span>Ravenna, Italia</span>
+            </p>
+        </header>
 
+        <section class="profile">
+            <h2 class="section-title">Profilo Professionale</h2>
+            <p id="profileText">
+                Ingegnere Informatico (10+ anni) esperto in architetture <strong>Cloud-native SaaS su Azure</strong> e qualità del software (<strong>SOLID/Clean Code</strong>). Solido background in <strong>Automazione Industriale</strong> (SCADA/PLC/Real-time) e competenze operative Frontend.
+            </p>
+        </section>
+
+        <aside>
             <h2>Hard Skills</h2>
             <div class="skill-group">
                 <strong>Core Development</strong>
@@ -98,31 +86,19 @@
 
             <h2>Lingue</h2>
             <div class="languages-grid">
-                <div class="contact-item">
+                <div class="language-item">
                     <span>Italiano</span>
                     Madrelingua
                 </div>
-                <div class="contact-item">
+                <div class="language-item">
                     <span>Inglese</span>
                     Fluente
                 </div>
             </div>
-            
-            </aside>
+
+        </aside>
 
         <main>
-            <header>
-                <h1>Andrea Calafiore</h1>
-                <div class="subtitle">Senior Software Engineer & Automation Expert</div>
-            </header>
-
-            <section>
-                <h2 class="section-title">Profilo Professionale</h2>
-                <p id="profileText">
-                    Ingegnere Informatico (10+ anni) esperto in architetture <strong>Cloud-native SaaS su Azure</strong> e qualità del software (<strong>SOLID/Clean Code</strong>). Solido background in <strong>Automazione Industriale</strong> (SCADA/PLC/Real-time) e competenze operative Frontend.
-                </p>
-            </section>
-
             <section>
                 <h2 class="section-title">Esperienza Lavorativa</h2>
 
@@ -141,7 +117,7 @@
 						<li><strong>CMS & E-commerce:</strong> Ottimizzazione e scaling di sistemi CMS proprietari per il settore Fashion & Lifestyle.</li>
                     </ul>
                 </div>
-                
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <span class="job-title">Senior Software Technician / Architect</span>
@@ -196,7 +172,6 @@
         </main>
     </div>
 
-	<script src="assets/javascripts/html2pdf.v0.9.3.bundle.min.js"></script>
 	<script src="assets/javascripts/main.js"></script>
 </body>
 </html>

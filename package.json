@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "pdf": "node scripts/build-pdf.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.65.1"
+  }
+}
